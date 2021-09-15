@@ -34,4 +34,10 @@ public class TestCoursSession extends TestCase {
         assertEquals(travail1, coursSession.getTravail(0));
         assertEquals(travail2, coursSession.getTravail(1));
     }
+
+    public void testCompare() {
+        assertEquals(0, coursSession.compareTo(new CoursSession("Philo","101" )));
+        assertTrue(coursSession.compareTo(new CoursSession("Philo","201" )) < 0 );
+        assertTrue(coursSession.compareTo(new CoursSession("Math","201" )) > 0 );
+    }
 }

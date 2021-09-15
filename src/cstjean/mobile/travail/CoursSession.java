@@ -3,7 +3,7 @@ package cstjean.mobile.travail;
 import java.util.ArrayList;
 import java.util.List;
 
-class CoursSession {
+public class CoursSession implements Comparable<CoursSession>{
 
     private final String departement;
     private final String numero;
@@ -14,11 +14,11 @@ class CoursSession {
      this.numero = numero;
     }
 
-    String getDepartement() {
+    public String getDepartement() {
         return departement;
     }
 
-    String getNumero() {
+    public String getNumero() {
         return numero;
     }
 
@@ -32,5 +32,15 @@ class CoursSession {
 
     Travail getTravail(int position) {
         return listeTraveaux.get(position);
+    }
+
+    @Override
+
+    public int compareTo(CoursSession o){
+        int compareDepartement = getDepartement().compareTo(o.getDepartement());
+        if (compareDepartement != 0){
+            return compareDepartement;
+        }
+       return getNumero().compareTo(o.getNumero());
     }
 }
