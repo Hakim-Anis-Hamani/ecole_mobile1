@@ -10,18 +10,20 @@ public class TestTravail extends TestCase {
     public void testCreer() {
         Calendar dateRemise = new GregorianCalendar(2021,Calendar.SEPTEMBER, 3);
         String nomTravail1 = "TP1";
-        Travail travail1 = new Travail(nomTravail1, dateRemise);
+        Travail travail1 = creerTravail(nomTravail1, dateRemise);
 
         assertEquals("TP1", nomTravail1);
         assertEquals(dateRemise, travail1.getDateRemise());
 
         String nomTravail2 = "TP2";
-        Travail travail2 = new Travail("TP2",dateRemise);
+        Travail travail2 = creerTravail("TP2",dateRemise);
 
         assertEquals("TP2", nomTravail2);
         assertEquals("TP1", travail1.getNom());
         assertEquals(dateRemise, travail2.getDateRemise());
     }
 
-
+    protected Travail creerTravail(String nom, Calendar dateRemise){
+        return new Travail(nom, dateRemise);
+    }
 }
